@@ -1,0 +1,12 @@
+/.intellij/
+.idea
+**/gen/
+**/out/
+**/gen-external-apklibs/
+**/target/
+*Thumbs.db
+**.iml
+build.xml
+ant.properties
+**.properties
+proguard-project.txt
