@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ChangingBackground</string>
+    <string name="go_forward">Go Forward</string>
+    <string name="go_back">Go Back</string>
+    <string name="home_view">Home View Controller</string>
+    <string name="second_view">Second View Controller</string>
 </resources>
