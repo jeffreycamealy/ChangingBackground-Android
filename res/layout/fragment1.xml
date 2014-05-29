@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <TextView
+        style="@style/Text"
+        android:layout_above="@+id/nextButton"
+        android:text="@string/fragment1_title" />
+
     <Button
-        android:id="@+id/nextButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:id="@id/nextButton"
+        style="@style/Button"
+        android:layout_centerInParent="true"
         android:text="@string/go_to_fragment_2" />
 
-</FrameLayout>
+</RelativeLayout>
