@@ -1,6 +1,5 @@
 package com.orainteractive.changingbackground;
 
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,51 +12,54 @@ import android.widget.Button;
  * The main Activity of the app
  */
 public class MainActivity extends FragmentActivity {
+	boolean forwardFragActive = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		Fragment forward = ButtonFragment.newInstance(getString(R.string.forward),
-				getString(R.string.blue_fragment), true);
 
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();
-		transaction.setCustomAnimations(0,0);
-		transaction.add(R.id.fragment_frame, forward, getString(R.string.forward));
-		transaction.setTransition(1);
+		Fragment fragment = null;
+		if (savedInstanceState != null) {
+			
+			// Check for the last displayed fragment if it exists
+			forwardFragActive = savedInstanceState.getBoolean("forwardFragment", true);
+			fragment = fm.findFragmentByTag(forwardFragActive ? ButtonFragment.forward
+					: ButtonFragment.backward);
+		}
+
+		if (fragment == null)
+			fragment = ButtonFragment.newInstance(forwardFragActive);
+
+		transaction.replace(R.id.fragment_frame, fragment,
+				forwardFragActive ? ButtonFragment.forward : ButtonFragment.backward);
 		transaction.commit();
+
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		outState.putBoolean("forwardFragment", forwardFragActive);
+		super.onSaveInstanceState(outState);
 	}
 
 	public void buttonClick(View v) {
+
 		FragmentManager fm = getSupportFragmentManager();
 		FragmentTransaction transaction = fm.beginTransaction();
-		Fragment fragment;
 
-		boolean firstFragment = ((Button) v).getText().equals(getString(R.string.forward));
-		if (firstFragment) {
-			fragment = fm.findFragmentByTag(getString(R.string.backwards));
-			if (fragment == null)
-				fragment = ButtonFragment.newInstance(getString(R.string.backwards),
-						getString(R.string.green_fragment), false);
-			transaction.replace(R.id.fragment_frame, fragment);
-			transaction.addToBackStack(getString(R.string.backwards));
-//			transaction.setCustomAnimations(R.anim.slide_out_left,
-//					R.anim.slide_in_right);
-			transaction.commit();
-			
-		}
-		else {
-//			fragment = fm.findFragmentByTag(getString(R.string.forward));
-//			if (fragment == null)
-//				fragment = ButtonFragment.newInstance(getString(R.string.forward),
-//						getString(R.string.blue_fragment), false);
-			fm.popBackStack();
-			// transaction.setCustomAnimations(R.anim.slide_in_left,
-			// R.anim.slide_out_right);
-		}
+		// Set forwardFragActive to the desired fragment.
+		forwardFragActive = !((Button) v).getText().equals(ButtonFragment.forward);
 		
-		//transaction.commit();
-
+		// Check if the fragment exists, otherwise create a new instance.
+		Fragment fragment = fm.findFragmentByTag(forwardFragActive ? ButtonFragment.forward
+				: ButtonFragment.backward);
+		if (fragment == null)
+			fragment = ButtonFragment.newInstance(forwardFragActive);
+		
+		transaction.replace(R.id.fragment_frame, fragment);
+		transaction.commit();
 	}
 }
