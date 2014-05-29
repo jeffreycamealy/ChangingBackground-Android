@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ChangingBackground</string>
+    
+    <!-- Home fragment -->
+    <string name="fragment1_title">Home Fragment</string>
+    <string name="go_to_fragment_2">Go Forward</string>
+
+    <!-- Second fragment -->
+    <string name="fragment2_title">Second Fragment</string>
+    <string name="back_to_fragment_1">Go Back</string>
 </resources>
