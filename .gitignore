@@ -10,3 +10,4 @@ ant.properties
 **.properties
 proguard-project.txt
 .DS_Store
+.gradle
