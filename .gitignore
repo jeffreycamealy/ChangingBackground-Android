@@ -5,8 +5,9 @@
 **/gen-external-apklibs/
 **/target/
 *Thumbs.db
-**.iml
 build.xml
 ant.properties
 **.properties
 proguard-project.txt
+.DS_Store
+.gradle
