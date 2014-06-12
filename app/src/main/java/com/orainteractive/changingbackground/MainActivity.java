@@ -77,7 +77,7 @@ public class MainActivity extends FragmentActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        transitionD.startTransition(2000);
+                        transitionD.startTransition(1000);
                         backEnabled = true;
                     }
                 });
@@ -99,7 +99,7 @@ public class MainActivity extends FragmentActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        transitionD.reverseTransition(2000);
+                        transitionD.reverseTransition(1000);
                     }
                 });
             }

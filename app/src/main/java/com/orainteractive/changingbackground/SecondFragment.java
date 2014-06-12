@@ -11,7 +11,7 @@ import android.widget.Button;
 /**
  * The main Activity of the app
  */
-public class SecondFragment extends AnimatedFragment {
+public class SecondFragment extends Fragment {
 
     // create the layout.
     @Override
@@ -40,8 +40,6 @@ public class SecondFragment extends AnimatedFragment {
             @Override
             public void onClick(View view) {
                 main.goPrev();
-                //TransitionDrawable d = (TransitionDrawable) getWindow().getDecorView().getBackground();
-                //d.startTransition(2000);
             }
         });
         super.onResume();

@@ -11,7 +11,7 @@ import android.widget.Button;
 /**
  * The main Activity of the app
  */
-public class FirstFragment extends AnimatedFragment {
+public class FirstFragment extends Fragment {
 
     // create the layout.
     @Override
@@ -31,9 +31,6 @@ public class FirstFragment extends AnimatedFragment {
             @Override
             public void onClick(View view) {
                 main.goNext();
-//                overridePendingTransition(R.anim.rl_in, R.anim.rl_out);
-                //TransitionDrawable d = (TransitionDrawable) getWindow().getDecorView().getBackground();
-                //d.startTransition(2000);
             }
         });
         super.onResume();
