@@ -2,8 +2,9 @@ ChangingBackground-Android
 ==========================
 Follow the same instructions as the [iOS programming challenge](https://github.com/jeffreycamealy/ChangingBackground), but fork this project instead.
 
+##Implementation
 
-##Implementation description
+[Video](https://www.youtube.com/watch?v=5gjd9NYETmY "Video"). The APK is located in app/build/apk
 
 
 Based on the animation available on the iOS programming challenge, these are the requirements I interpreted:
@@ -22,7 +23,7 @@ The App is a single Activity composed of a background image, and two fragments t
 The background gradient is implemented using an ImageView, setting a TransitionDrawable as its source. It's possible to do this without using an ImageView, and setting the TransitionDrawable as the `Activity`'s background, but this is more straight-forward. The TransitionDrawable has methods to flip between two Drawables. An app using more than 2 background images wouldn't be able to use this technique, and something custom would probably have to be written.
 
 ###View Switching
-Switching between the two fragments is achieved by using a `FragmentTransaction` with custom animations. To satisfy requirement #1, you'd normally register a listener for when the animation is done, but `FragmentTransaction` doesn't provide a way to register listeners or expose the Animation. `TransitionDrawable` also doesn't provide a way to fire the animation after a few seconds. Therefore, I had to add a Timer which fires the `TransitionDrawable` animation after a second. This is very hackish, and it creates extra work if the app has more than two views. In order to do this correctly, one has to extend and override `FragmentTransation`. I'm surprised Google hasn't added support for this. Most applications probably don't need this.
+Switching between the two fragments is achieved by using a `FragmentTransaction` with custom animations. To satisfy requirement #1, you'd normally register a listener for when the animation is done, but `FragmentTransaction` doesn't provide a way to register listeners or expose the Animation. `TransitionDrawable` also doesn't provide a way to fire the animation after a few seconds. Therefore, I had to add a Timer which fires the `TransitionDrawable` animation after a second. This is very hackish, and it creates extra work if the app has more than two views. In order to do this correctly, one has to extend and override `FragmentTransation`. I'm surprised Google hasn't added support for this. Most applications probably don't need it.
 
 Because Android phones have back buttons, I also had to block usage of the back button during the transition, to prevent the Timer from firing when it's not supposed to. 
 
