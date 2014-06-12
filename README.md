@@ -4,7 +4,7 @@ Follow the same instructions as the [iOS programming challenge](https://github.c
 
 ##Implementation
 
-[Video](https://www.youtube.com/watch?v=5gjd9NYETmY "Video"). The APK is located in app/build/apk
+[Video](https://www.youtube.com/watch?v=5gjd9NYETmY "Video"). The APK is at /app-release-unsigned.apk
 
 
 Based on the animation available on the iOS programming challenge, these are the requirements I interpreted:
