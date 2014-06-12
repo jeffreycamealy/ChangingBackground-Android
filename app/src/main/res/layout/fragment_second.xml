@@ -2,18 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".SecondActivity"
-    android:background="#00000000"
+    tools:context=".SecondFragment"
     >
-
-    <TextView
-        android:text="Rafael Mendiola - dslounge@gmail.com"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#FFFFFF"/>
 
     <LinearLayout
         android:orientation="vertical"
