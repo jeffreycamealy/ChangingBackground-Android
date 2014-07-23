@@ -15,7 +15,7 @@ import com.orainteractive.changingbackground.fragment.SecondFragment;
 public class MainActivity extends FragmentActivity implements BaseFragment.ButtonListener {
     private static final int FRAGMENT_CONTAINER = R.id.fragment_container;
     private static final int TRANSITION_DURATION = 2000;
-    TransitionDrawable mBackgroundTransition;
+    private TransitionDrawable mBackgroundTransition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
