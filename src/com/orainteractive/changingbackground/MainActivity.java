@@ -21,17 +21,8 @@ public class MainActivity extends FragmentActivity implements BaseFragment.Butto
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        initFragments();
         mBackgroundTransition = (TransitionDrawable) findViewById(R.id.main_activity_layout).getBackground();
         showHomeFragment();
-    }
-
-    /** Initializes and adds the necessary fragments to the FragmentManager. */
-    private void initFragments() {
-        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(new SecondFragment(), SecondFragment.TAG);
-        transaction.add(FRAGMENT_CONTAINER, new HomeFragment(), HomeFragment.TAG);
-        transaction.commit();
     }
 
     /** Displays the "home" fragment with the "go forward" button. */
