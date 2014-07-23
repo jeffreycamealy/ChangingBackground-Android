@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Values used for animations -->
+    <integer name="slide_duration">250</integer>
+</resources>
