@@ -55,7 +55,8 @@ public class MainActivity extends FragmentActivity implements BaseFragment.Butto
 
         // Add animations to transaction if specified
         if (animate) {
-//            transaction.setCustomAnimations(0, 0, 0, 0); TODO CREATE ANIMATION XML FILES
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left,
+                    R.anim.slide_in_left, R.anim.slide_out_right);
             mBackgroundTransition.startTransition(TRANSITION_DURATION);
         }
 
